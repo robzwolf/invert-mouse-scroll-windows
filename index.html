@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+  <style type="text/css">
+  /* inline stylesheet */
+  body {
+    font-family:'Segoe UI', 'Arial', sans-serif;
+    background:#eee;
+  }
+
+  textarea {
+    font-family:'Consolas', 'Monaco', monospace;
+    overflow-wrap:break-word;
+    white-space:normal;
+    border:1px solid #aaa;
+    padding:4px;
+    background:#fbfbfb;
+    border-radius:4px;
+    font-size:12px;
+    width:calc(100% - 40px);
+    height:100px;
+    outline:none;
+    resize:none;
+    overflow:auto;
+  }
+
+  textarea::selection {
+    background:#666;
+    color:#fff;
+  }
+
+  main {
+    min-width:60%;
+    max-width:80%;
+    margin:40px auto;
+    background:#fff;
+    padding:20px;
+    border-radius:4px;
+    border:1px solid #ccc;
+  }
+
+  h1 {
+    margin:0;
+  }
+
+  a, a:visited, a:active, a:focus {
+    color:#666;
+  }
+
+  .footer-text {
+    font-size:12px;
+    text-align:center;
+  }
+
+  a:hover {
+    text-decoration:none;
+  }
+
+  kbd {
+    font-family:'Consolas', 'Monaco', monospace;
+    overflow-wrap:break-word;
+    white-space:normal;
+    border:1px solid #aaa;
+    padding:0 3px;
+    margin:auto 2px;
+    background:linear-gradient(to bottom, #fcfcfc 0%,#dfdfdf 100%);
+    border-radius:4px;
+    font-size:12px;
+  }
+
+  </style>
+  <script>
+    //window.mac = navigator.userAgent.indexOf("Mac") > -1;
+    if(navigator.userAgent.indexOf("Mac") > -1) {
+      window.ctrl = "&#x2318;"
+    } else {
+      window.ctrl = "Ctrl";
+    }
+  </script>
+  <title>Inverted Mouse Scrolling</title>
+</head>
+<body>
+  <main>
+    <h1>Inverted Mouse Scrolling</h1>
+    <ol>
+      <li>
+          Press <kbd><script>document.write(window.ctrl)</script></kbd>-<kbd>A</kbd> to highlight the following command. Copy <kbd><script>document.write(window.ctrl)</script></kbd>-<kbd>C</kbd> and paste <kbd><script>document.write(window.ctrl)</script></kbd>-<kbd>V</kbd> it into an elevated PowerShell window:<br /><br />
+          <textarea readonly autofocus>Get-ItemProperty HKLM:\SYSTEM\CurrentControlSet\Enum\HID\*\*\Device` Parameters FlipFlopWheel -EA 0 | ForEach-Object { Set-ItemProperty $_.PSPath FlipFlopWheel 1 }</textarea><br /><br />
+      </li>
+      <li>Unplug and replug the mouse in, or disable and re-enable it in Device Manager.</li>
+    </ol>
+  <br />
+  <hr />
+  <br />
+  <p class="footer-text">Source: <a href="https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel#comment561670_364353">https://superuser.com/questions/310681/inverting-direction-of-mouse-scroll-wheel#comment561670_364353</a>, retrieved 02/01/2018.<br />
+  Webpage &copy; <a href="/">Robbie Jakob-Whitworth</a> <script>document.write(new Date().getFullYear());</script></p>
+  </main>
+</body>
